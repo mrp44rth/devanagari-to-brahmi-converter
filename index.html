@@ -1,678 +1,520 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<style>
-@font-face {
-  font-family: 'NotoSansBrahmi-Regular';
-  src: URL('NotoSansBrahmi-Regular.ttf') format('truetype');
-}
-@font-face{
-	font-family: 'NotoSansDevanagari-Regular';
-	src: URL('NotoSansDevanagari-Regular.ttf')format('truetype');
-}
-input[type=text], select {
-	font-size: 20px;
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid red;
-    border-radius: 6px;
-    box-shadow: 0px 0px 5px 5px white;
-    box-sizing: border-box;
-}
-body{
-background-color: mediumpurple;
-}
-
-button {
-    width: 10%;
-	box-shadow: 0px 0px 3px 3px white;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-	margin-left:3%;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-div {
-border: 3px dashed white;
-    border-color:;
-    border-radius: 30px;
-    background-color: orchid;
-    padding: 20px;
-}
-</style>
 <head>
-	<meta name="google-site-verification" content="lCizVLqwrccRZ3U9_bSJ12TiRiiAdlEjQi6XGUiw4Ro" />
-	<script>
-		function DevanagariToBrahmi(){
-			// alert("DevanagariToBrahmi");
-			var a,b;
-			a = document.getElementById("Devanagari").value;
-			b = "";
-			var i;
-			for (i = 0; i < a.length; i++) {
-				var n = a.codePointAt(i);
-				switch(n){
-					case 0x902:
-						b += "&#x11001";
-						break;
-					case 0x905: //A
-						b += "&#x11005";
-						break;
-					case 0x906: //AA
-						b += "&#x11006";
-						break;
-					case 0x907: //I
-						b += "&#x11007";
-						break;
-					case 0x908: //II
-						b += "&#x11008";
-						break;
-					case 0x909: //U
-						b += "&#x11009";
-						break;
-					case 0x90A: // UU
-						b += "&#x1100A";
-						break;
-					case 0x90B: //Vocalic R
-						b += "&#x1100B";
-						break;
-					case 0x90C: //Vocalic L
-						b += "&#x1100D";
-						break;
-					case 0x90F: // E
-						b += "&#x1100F";
-						break;
-					case 0x910: // AI
-						b += "&#x11010";
-						break;
-					case 0x913: // O
-						b += "&#x11011";
-						break;
-					case 0x914: // AU
-						b += "&#x11012";
-						break;
-					case 0x915: // KA
-						b += "&#x11013";
-						break;
-					case 0x916: // KHA
-						b += "&#x11014";
-						break;
-					case 0x917: // GA
-						b += "&#x11015";
-						break;
-					case 0x918: // GHA
-						b += "&#x11016";
-						break;
-					case 0x919: // NGA
-						b += "&#x11017";
-						break;
-					case 0x91A: // CA
-						b += "&#x11018";
-						break;
-					case 0x91B: // CHA
-						b += "&#x11019";
-						break;
-					case 0x91C: // JA
-						b += "&#x1101A";
-						break;
-					case 0x91D: // JHA
-						b += "&#x1101B";
-						break;
-					case 0x91E: // NYA
-						b += "&#x1101C";
-						break;
-					case 0x91F: // TTA
-						b += "&#x1101D";
-						break;
-					case 0x920: // TTHA
-						b += "&#x1101E";
-						break;
-					case 0x921: // DDA
-						b += "&#x1101F";
-						break;
-					case 0x922: // DDHA
-						b += "&#x11020";
-						break;
-					case 0x923: // NNA
-						b += "&#x11021";
-						break;
-					case 0x924: // TA
-						b += "&#x11022";
-						break;
-					case 0x925: // THA
-						b += "&#x11023";
-						break;
-					case 0x926: // DA
-						b += "&#x11024";
-						break;
-					case 0x927: // DHA
-						b += "&#x11025";
-						break;
-					case 0x928: // NA
-						b += "&#x11026";
-						break;
-					case 0x92A: //PA
-						b += "&#x11027";
-						break;
-					case 0x92B: //PHA
-						b += "&#x11028";
-						break;
-					case 0x92C: // BA
-						b += "&#x11029";
-						break;
-					case 0x92D: // BHA
-						b += "&#x1102A";
-						break;
-					case 0x92E: // MA
-						b += "&#x1102B";
-						break;
-					case 0x92F: // YA
-						b += "&#x1102C";
-						break;
-					case 0x930: // RA
-						b += "&#x1102D";
-						break;
-					case 0x932: // LA
-						b += "&#x1102E";
-						break;
-					case 0x933: // LLA
-						b += "&#x11034";
-						break;
-					case 0x935: // VA
-						b += "&#x1102F";
-						break;
-					case 0x936: // SHA
-						b += "&#x11030";
-						break;
-					case 0x937: // SSA
-						b += "&#x11031";
-						break;
-					case 0x938: // SA
-						b += "&#x11032";
-						break;
-					case 0x939: // HA
-						b += "&#x11033";
-						break;
-					case 0x93E: // AA
-						b += "&#x11038";
-						break;
-					case 0x93F: // I
-						b += "&#x1103A";
-						break;
-					case 0x940: // II
-						b += "&#x1103B";
-						break;
-					case 0x941: // U
-						b += "&#x1103C";
-						break;
-					case 0x942: //UU
-						b += "&#x1103D";
-						break;
-					case 0x943: //R
-						b += "&#x1103E";
-						break;
-					case 0x944: //RR
-						b += "&#x1103F";
-						break;
-					case 0x962: //L
-						b += "&#x11040";
-						break;
-					case 0x963: //LL
-						b += "&#x11041";
-						break;
-					case 0x947: //E
-						b += "&#x11042";
-						break;
-					case 0x948: //AI
-						b += "&#x11043";
-						break;
-					case 0x94B: //O
-						b += "&#x11044";
-						break;
-					case 0x94C: //AU
-						b += "&#x11045";
-						break;
-					case 0x94D: //virama
-						b += "&#x11046";
-						break;
-					case 0x964: // danda
-						b += "&#x11047";
-						break;
-					case 0x965: // double danda
-						b += "&#x11048";
-						break;
-					case 0x966: //0
-						b += "&#x11066";
-						break;
-					case 0x967: //1
-						b += "&#x11067";
-						break;
-					case 0x968: //2
-						b += "&#x11068";
-						break;
-					case 0x969: //3
-						b += "&#x11069";
-						break;
-					case 0x96A: //4
-						b += "&#x1106A";
-						break;
-					case 0x96B: //5
-						b += "&#x1106B";
-						break;
-					case 0x96C: //6
-						b += "&#x1106C";
-						break;
-					case 0x96D: //7 
-						b += "&#x1106D";
-						break;
-					case 0x96E: //8
-						b += "&#x1106E";
-						break;
-					case 0x96F: //9
-						b += "&#x1106F";
-						break;
-					default:
-						b += "&#"+n;
-						break;
-				}
-			}
-			document.getElementById("Output1").innerHTML= b;
-		}
-		function BrahmiToDevanagari(){
-			// alert("BrahmiToDevanagari");
-			var a,b;
-			a = document.getElementById("Brahmi").value;
-			b = "";
-			var i;
-			for (i=0; i<a.length; i++){
-				var n = a.codePointAt(i);
-				switch(n){
-					case 0x11001:
-						b += "&#x902";
-						i++;
-						break;
-					case 0x11005:
-						b += "&#x00905";
-						i++;
-						break;
-					case 0x11006: //AA
-						b += "&#x906";
-						i++;
-						break;
-					case 0x11007: //I
-						b += "&#x907";
-						i++;
-						break;
-					case 0x11008: //II
-						b += "&#x908";
-						i++;
-						break;
-					case 0x11009: //U
-						b += "&#x909";
-						i++;
-						break;
-					case 0x1100A: // UU
-						b += "&#x90A";
-						i++;
-						break;
-					case 0x1100B: //Vocalic R
-						b += "&#x90B";
-						i++;
-						break;
-					case 0x1100D: //Vocalic L
-						b += "&#x90C";
-						i++;
-						break;
-					case 0x1100F: // E
-						b += "&#x90F";
-						i++;
-						break;
-					case 0x11010: // AI
-						b += "&#x910";
-						i++;
-						break;
-					case 0x11011: // O
-						b += "&#x913";
-						i++;
-						break;
-					case 0x11012: // AU
-						b += "&#x914";
-						i++;
-						break;
-					case 0x11013: // KA
-						b += "&#x915";
-						i++;
-						break;
-					case 0x11014: // KHA
-						b += "&#x916";
-						i++;
-						break;
-					case 0x11015: // GA
-						b += "&#x917";
-						i++;
-						break;
-					case 0x11016: // GHA
-						b += "&#x918";
-						i++;
-						break;
-					case 0x11017: // NGA
-						b += "&#x919";
-						i++;
-						break;
-					case 0x11018: // CA
-						b += "&#x91A";
-						i++;
-						break;
-					case 0x11019: // CHA
-						b += "&#x91B";
-						i++;
-						break;
-					case 0x1101A: // JA
-						b += "&#x91C";
-						i++;
-						break;
-					case 0x1101B: // JHA
-						b += "&#x91D";
-						i++;
-						break;
-					case 0x1101C: // NYA
-						b += "&#x91E";
-						i++;
-						break;
-					case 0x1101D: // TTA
-						b += "&#x91F";
-						i++;
-						break;
-					case 0x1101E: // TTHA
-						b += "&#x920";
-						i++;
-						break;
-					case 0x1101F: // DDA
-						b += "&#x921";
-						i++;
-						break;
-					case 0x11020: // DDHA
-						b += "&#x922";
-						i++;
-						break;
-					case 0x11021: // NNA
-						b += "&#x923";
-						i++;
-						break;
-					case 0x11022: // TA
-						b += "&#x924";
-						i++;
-						break;
-					case 0x11023: // THA
-						b += "&#x925";
-						i++;
-						break;
-					case 0x11024: // DA
-						b += "&#x926";
-						i++;
-						break;
-					case 0x11025: // DHA
-						b += "&#x927";
-						i++;
-						break;
-					case 0x11026: // NA
-						b += "&#x928";
-						i++;
-						break;
-					case 0x11027: //PA
-						b += "&#x92A";
-						i++;
-						break;
-					case 0x11028: //PHA
-						b += "&#x92B";
-						i++;
-						break;
-					case 0x11029: // BA
-						b += "&#x92C";
-						i++;
-						break;
-					case 0x1102A: // BHA
-						b += "&#x92D";
-						i++;
-						break;
-					case 0x1102B: // MA
-						b += "&#x92E";
-						i++;
-						break;
-					case 0x1102C: // YA
-						b += "&#x92F";
-						i++;
-						break;
-					case 0x1102D: // RA
-						b += "&#x930";
-						i++;
-						break;
-					case 0x1102E: // LA
-						b += "&#x932";
-						i++;
-						break;
-					case 0x11034: // LLA
-						b += "&#x933";
-						i++;
-						break;
-					case 0x1102F: // VA
-						b += "&#x935";
-						i++;
-						break;
-					case 0x11030: // SHA
-						b += "&#x936";
-						i++;
-						break;
-					case 0x11031: // SSA
-						b += "&#x937";
-						i++;
-						break;
-					case 0x11032: // SA
-						b += "&#x938";
-						i++;
-						break;
-					case 0x11033: // HA
-						b += "&#x939";
-						i++;
-						break;
-					case 0x11038: // AA
-						b += "&#x93E";
-						i++;
-						break;
-					case 0x1103A: // I
-						b += "&#x93F";
-						i++;
-						break;
-					case 0x1103B: // II
-						b += "&#x940";
-						i++;
-						break;
-					case 0x1103C: // U
-						b += "&#x941";
-						i++;
-						break;
-					case 0x1103D: //UU
-						b += "&#x942";
-						i++;
-						break;
-					case 0x1103E: //R
-						b += "&#x943";
-						i++;
-						break;
-					case 0x1103F: //RR
-						b += "&#x944";
-						i++;
-						break;
-					case 0x11040: //L
-						b += "&#x962";
-						i++;
-						break;
-					case 0x11041: //LL
-						b += "&#x963";
-						i++;
-						break;
-					case 0x11042: //E
-						b += "&#x947";
-						i++;
-						break;
-					case 0x11043: //AI
-						b += "&#x948";
-						i++;
-						break;
-					case 0x11044: //O
-						b += "&#x94B";
-						i++;
-						break;
-					case 0x11045: //AU
-						b += "&#x94C";
-						i++;
-						break;
-					case 0x11046: //virama
-						b += "&#x94D";
-						i++;
-						break;
-					case 0x11047: // danda
-						b += "&#x964";
-						i++;
-						break;
-					case 0x11048: // double danda
-						b += "&#x965";
-						i++;
-						break;
-					case 0x11066: //0
-						b += "&#x966";
-						i++;
-						break;
-					case 0x11067: //1
-						b += "&#x967";
-						i++;
-						break;
-					case 0x11068: //2
-						b += "&#x968";
-						i++;
-						break;
-					case 0x11069: //3
-						b += "&#x969";
-						i++;
-						break;
-					case 0x1106A: //4
-						b += "&#x96A";
-						i++;
-						break;
-					case 0x1106B: //5
-						b += "&#x96B";
-						i++;
-						break;
-					case 0x1106C: //6
-						b += "&#x96C";
-						i++;
-						break;
-					case 0x1106D: //7 
-						b += "&#x96D";
-						i++;
-						break;
-					case 0x1106E: //8
-						b += "&#x96E";
-						i++;
-						break;
-					case 0x1106F: //9
-						b += "&#x96F";
-						i++;
-						break;
-					default:
-						b += "&#"+n;
-				}
-			}
-			document.getElementById("Output2").innerHTML= b;
-		};
-	</script>
-	<title>Devanagari To Brahmi Converter</title>
+    <meta name="google-site-verification" content="lCizVLqwrccRZ3U9_bSJ12TiRiiAdlEjQi6XGUiw4Ro" />
+    <title>Devanagari To Brahmi Converter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'NotoSansBrahmi-Regular';
+            src: URL('NotoSansBrahmi-Regular.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'NotoSansDevanagari-Regular';
+            src: URL('NotoSansDevanagari-Regular.ttf') format('truetype');
+        }
+
+        :root {
+            --primary-bg: #e0f2f7; /* Light blue-green */
+            --secondary-bg: #bbdefb; /* Lighter blue */
+            --accent-color: #007bb6; /* Blue */
+            --text-color: #333;
+            --header-color: #004d73; /* Darker blue */
+            --border-color: #90caf9; /* Medium blue */
+
+            /* New & Enhanced Colors for Inputs & Buttons */
+            --input-bg: #f9f9f9;
+            --input-border-initial: #c9e3f3; /* Softer blue border */
+            --input-focus-border: #007bb6; /* Accent blue */
+            --input-shadow-focus: rgba(0, 123, 182, 0.4); /* Stronger blue glow */
+
+            --button-start-gradient: #4CAF50; /* Green */
+            --button-end-gradient: #388E3C; /* Darker Green */
+            --button-hover-start-gradient: #66BB6A; /* Lighter Green on hover */
+            --button-hover-end-gradient: #4CAF50; /* Original Green on hover */
+            --button-active-bg: #2E7D32; /* Even darker green on active */
+            --button-shadow: rgba(0, 0, 0, 0.2); /* Deeper shadow */
+            --button-shadow-hover: rgba(0, 0, 0, 0.3); /* Even deeper shadow on hover */
+
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-medium: rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--shadow-medium);
+            max-width: 900px;
+            width: 100%;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--header-color);
+            text-align: center;
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin-bottom: 25px;
+        }
+
+        /* --- INPUT FIELD STYLES --- */
+        input[type=text] {
+            font-size: 1.2em;
+            width: calc(65% - 20px);
+            padding: 12px 18px; /* Slightly more padding */
+            margin: 10px 0;
+            border: 1px solid var(--input-border-initial); /* Softer initial border */
+            border-radius: 8px;
+            background-color: var(--input-bg);
+            box-shadow: inset 0 2px 5px var(--shadow-light); /* Deeper inset shadow */
+            box-sizing: border-box;
+            transition: all 0.3s ease-in-out; /* Smoother transition */
+            color: var(--text-color); /* Ensure text color is good */
+        }
+
+        input[type=text]::placeholder {
+            color: #888; /* Placeholder color */
+        }
+
+        input[type=text]:focus {
+            outline: none;
+            border-color: var(--input-focus-border); /* Stronger focus border */
+            box-shadow: 0 0 12px var(--input-shadow-focus), inset 0 2px 5px var(--shadow-light); /* Glow effect + inset shadow */
+            transform: scale(1.01); /* Slight grow effect on focus */
+        }
+
+        /* --- BUTTON STYLES --- */
+        button {
+            width: 15%;
+            min-width: 100px;
+            padding: 14px 20px; /* Slightly more padding for buttons */
+            margin: 10px 0 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 700; /* Bolder text */
+            color: white;
+            background: linear-gradient(145deg, var(--button-start-gradient), var(--button-end-gradient)); /* Gradient background */
+            box-shadow: 0 6px 15px var(--button-shadow); /* Deeper shadow */
+            transition: all 0.3s ease-in-out; /* Smoother transition */
+            position: relative; /* For active state */
+            overflow: hidden; /* For pseudo-element effects */
+        }
+
+        button:hover {
+            background: linear-gradient(145deg, var(--button-hover-start-gradient), var(--button-hover-end-gradient)); /* Lighter gradient on hover */
+            transform: translateY(-3px) scale(1.02); /* More pronounced lift and slight grow */
+            box-shadow: 0 9px 20px var(--button-shadow-hover); /* Deeper shadow on hover */
+        }
+
+        button:active {
+            background: var(--button-active-bg); /* Solid darker color on click */
+            transform: translateY(0) scale(0.98); /* Press down effect */
+            box-shadow: 0 3px 8px var(--button-shadow); /* Reduced shadow on click */
+        }
+
+        /* Optional: Add a subtle ripple effect on click for buttons */
+        button:focus::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            top: 0;
+            left: 0;
+            border-radius: inherit;
+            animation: ripple 0.6s forwards;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            from {
+                transform: scale(0);
+                opacity: 1;
+            }
+            to {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+
+        .converter-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+        }
+
+        .output-text {
+            font-size: 1.8em;
+            color: var(--header-color);
+            margin-top: 15px;
+            min-height: 40px;
+            display: block;
+            text-align: center;
+            padding: 10px 0;
+            word-wrap: break-word;
+        }
+
+        .info-section {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--shadow-medium);
+            margin-top: 20px;
+            line-height: 1.7;
+        }
+
+        .info-section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        .info-section li {
+            margin-bottom: 10px;
+        }
+
+        .info-section a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .info-section a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container, .info-section {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            input[type=text] {
+                width: 100%;
+                margin-right: 0;
+                font-size: 1.1em; /* Adjust font size for smaller screens */
+            }
+
+            button {
+                width: 100%;
+                margin: 15px 0 0 0;
+                font-size: 1em; /* Adjust font size for smaller screens */
+                padding: 12px 18px;
+            }
+
+            .converter-section {
+                padding: 15px;
+            }
+
+            .output-text {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.7em;
+            }
+            h3 {
+                font-size: 1.1em;
+            }
+            .output-text {
+                font-size: 1.3em;
+            }
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
+    <script>
+        function DevanagariToBrahmi(){
+            var a,b;
+            a = document.getElementById("Devanagari").value;
+            b = "";
+            var i;
+            for (i = 0; i < a.length; i++) {
+                var n = a.codePointAt(i);
+                switch(n){
+                    case 0x902: b += "&#x11001;"; break;
+                    case 0x905: b += "&#x11005;"; break; //A
+                    case 0x906: b += "&#x11006;"; break; //AA
+                    case 0x907: b += "&#x11007;"; break; //I
+                    case 0x908: b += "&#x11008;"; break; //II
+                    case 0x909: b += "&#x11009;"; break; //U
+                    case 0x90A: b += "&#x1100A;"; break; // UU
+                    case 0x90B: b += "&#x1100B;"; break; //Vocalic R
+                    case 0x90C: b += "&#x1100D;"; break; //Vocalic L
+                    case 0x90F: b += "&#x1100F;"; break; // E
+                    case 0x910: b += "&#x11010;"; break; // AI
+                    case 0x913: b += "&#x11011;"; break; // O
+                    case 0x914: b += "&#x11012;"; break; // AU
+                    case 0x915: b += "&#x11013;"; break; // KA
+                    case 0x916: b += "&#x11014;"; break; // KHA
+                    case 0x917: b += "&#x11015;"; break; // GA
+                    case 0x918: b += "&#x11016;"; break; // GHA
+                    case 0x919: b += "&#x11017;"; break; // NGA
+                    case 0x91A: b += "&#x11018;"; break; // CA
+                    case 0x91B: b += "&#x11019;"; break; // CHA
+                    case 0x91C: b += "&#x1101A;"; break; // JA
+                    case 0x91D: b += "&#x1101B;"; break; // JHA
+                    case 0x91E: b += "&#x1101C;"; break; // NYA
+                    case 0x91F: b += "&#x1101D;"; break; // TTA
+                    case 0x920: b += "&#x1101E;"; break; // TTHA
+                    case 0x921: b += "&#x1101F;"; break; // DDA
+                    case 0x922: b += "&#x11020;"; break; // DDHA
+                    case 0x923: b += "&#x11021;"; break; // NNA
+                    case 0x924: b += "&#x11022;"; break; // TA
+                    case 0x925: b += "&#x11023;"; break; // THA
+                    case 0x926: b += "&#x11024;"; break; // DA
+                    case 0x927: b += "&#x11025;"; break; // DHA
+                    case 0x928: b += "&#x11026;"; break; // NA
+                    case 0x92A: b += "&#x11027;"; break; //PA
+                    case 0x92B: b += "&#x11028;"; break; //PHA
+                    case 0x92C: b += "&#x11029;"; break; // BA
+                    case 0x92D: b += "&#x1102A;"; break; // BHA
+                    case 0x92E: b += "&#x1102B;"; break; // MA
+                    case 0x92F: b += "&#x1102C;"; break; // YA
+                    case 0x930: b += "&#x1102D;"; break; // RA
+                    case 0x932: b += "&#x1102E;"; break; // LA
+                    case 0x933: b += "&#x11034;"; break; // LLA
+                    case 0x935: b += "&#x1102F;"; break; // VA
+                    case 0x936: b += "&#x11030;"; break; // SHA
+                    case 0x937: b += "&#x11031;"; break; // SSA
+                    case 0x938: b += "&#x11032;"; break; // SA
+                    case 0x939: b += "&#x11033;"; break; // HA
+                    case 0x93E: b += "&#x11038;"; break; // AA
+                    case 0x93F: b += "&#x1103A;"; break; // I
+                    case 0x940: b += "&#x1103B;"; break; // II
+                    case 0x941: b += "&#x1103C;"; break; // U
+                    case 0x942: b += "&#x1103D;"; break; //UU
+                    case 0x943: b += "&#x1103E;"; break; //R
+                    case 0x944: b += "&#x1103F;"; break; //RR
+                    case 0x962: b += "&#x11040;"; break; //L
+                    case 0x963: b += "&#x11041;"; break; //LL
+                    case 0x947: b += "&#x11042;"; break; //E
+                    case 0x948: b += "&#x11043;"; break; //AI
+                    case 0x94B: b += "&#x11044;"; break; //O
+                    case 0x94C: b += "&#x11045;"; break; //AU
+                    case 0x94D: b += "&#x11046;"; break; //virama
+                    case 0x964: b += "&#x11047;"; break; // danda
+                    case 0x965: b += "&#x11048;"; break; // double danda
+                    case 0x966: b += "&#x11066;"; break; //0
+                    case 0x967: b += "&#x11067;"; break; //1
+                    case 0x968: b += "&#x11068;"; break; //2
+                    case 0x969: b += "&#x11069;"; break; //3
+                    case 0x96A: b += "&#x1106A;"; break; //4
+                    case 0x96B: b += "&#x1106B;"; break; //5
+                    case 0x96C: b += "&#x1106C;"; break; //6
+                    case 0x96D: b += "&#x1106D;"; break; //7 
+                    case 0x96E: b += "&#x1106E;"; break; //8
+                    case 0x96F: b += "&#x1106F;"; break; //9
+                    default: b += "&#"+n+";"; break; // Keep unmapped characters as is
+                }
+            }
+            document.getElementById("Output1").innerHTML= b;
+        }
+
+        function BrahmiToDevanagari(){
+            var a,b;
+            a = document.getElementById("Brahmi").value;
+            b = "";
+            var i;
+            for (i=0; i<a.length; i++){
+                var n = a.codePointAt(i);
+                switch(n){
+                    case 0x11001: b += "&#x902;"; i++; break;
+                    case 0x11005: b += "&#x00905;"; i++; break;
+                    case 0x11006: b += "&#x906;"; i++; break; //AA
+                    case 0x11007: b += "&#x907;"; i++; break; //I
+                    case 0x11008: b += "&#x908;"; i++; break; //II
+                    case 0x11009: b += "&#x909;"; i++; break; //U
+                    case 0x1100A: b += "&#x90A;"; i++; break; // UU
+                    case 0x1100B: b += "&#x90B;"; i++; break; //Vocalic R
+                    case 0x1100D: b += "&#x90C;"; i++; break; //Vocalic L
+                    case 0x1100F: b += "&#x90F;"; i++; break; // E
+                    case 0x11010: b += "&#x910;"; i++; break; // AI
+                    case 0x11011: b += "&#x913;"; i++; break; // O
+                    case 0x11012: b += "&#x914;"; i++; break; // AU
+                    case 0x11013: b += "&#x915;"; i++; break; // KA
+                    case 0x11014: b += "&#x916;"; i++; break; // KHA
+                    case 0x11015: b += "&#x917;"; i++; break; // GA
+                    case 0x11016: b += "&#x918;"; i++; break; // GHA
+                    case 0x11017: b += "&#x919;"; i++; break; // NGA
+                    case 0x11018: b += "&#x91A;"; i++; break; // CA
+                    case 0x11019: b += "&#x91B;"; i++; break; // CHA
+                    case 0x1101A: b += "&#x91C;"; i++; break; // JA
+                    case 0x1101B: b += "&#x91D;"; i++; break; // JHA
+                    case 0x1101C: b += "&#x91E;"; i++; break; // NYA
+                    case 0x1101D: b += "&#x91F;"; i++; break; // TTA
+                    case 0x1101E: b += "&#x920;"; i++; break; // TTHA
+                    case 0x1101F: b += "&#x921;"; i++; break; // DDA
+                    case 0x11020: b += "&#x922;"; i++; break; // DDHA
+                    case 0x11021: b += "&#x923;"; i++; break; // NNA
+                    case 0x11022: b += "&#x924;"; i++; break; // TA
+                    case 0x11023: b += "&#x925;"; i++; break; // THA
+                    case 0x11024: b += "&#x926;"; i++; break; // DA
+                    case 0x11025: b += "&#x927;"; i++; break; // DHA
+                    case 0x11026: b += "&#x928;"; i++; break; // NA
+                    case 0x11027: b += "&#x92A;"; i++; break; //PA
+                    case 0x11028: b += "&#x92B;"; i++; break; //PHA
+                    case 0x11029: b += "&#x92C;"; i++; break; // BA
+                    case 0x1102A: b += "&#x92D;"; i++; break; // BHA
+                    case 0x1102B: b += "&#x92E;"; i++; break; // MA
+                    case 0x1102C: b += "&#x92F;"; i++; break; // YA
+                    case 0x1102D: b += "&#x930;"; i++; break; // RA
+                    case 0x1102E: b += "&#x932;"; i++; break; // LA
+                    case 0x11034: b += "&#x933;"; i++; break; // LLA
+                    case 0x1102F: b += "&#x935;"; i++; break; // VA
+                    case 0x11030: b += "&#x936;"; i++; break; // SHA
+                    case 0x11031: b += "&#x11031;"; i++; break; // SSA (Corrected for consistency, was 0x11031 -> 0x11031)
+                    case 0x11032: b += "&#x938;"; i++; break; // SA
+                    case 0x11033: b += "&#x939;"; i++; break; // HA
+                    case 0x11038: b += "&#x93E;"; i++; break; // AA
+                    case 0x1103A: b += "&#x93F;"; i++; break; // I
+                    case 0x1103B: b += "&#x940;"; i++; break; // II
+                    case 0x1103C: b += "&#x941;"; i++; break; // U
+                    case 0x1103D: b += "&#x942;"; i++; break; //UU
+                    case 0x1103E: b += "&#x943;"; i++; break; //R
+                    case 0x1103F: b += "&#x944;"; i++; break; //RR
+                    case 0x11040: b += "&#x962;"; i++; break; //L
+                    case 0x11041: b += "&#x963;"; i++; break; //LL
+                    case 0x11042: b += "&#x947;"; i++; break; //E
+                    case 0x11043: b += "&#x948;"; i++; break; //AI
+                    case 0x11044: b += "&#x94B;"; i++; break; //O
+                    case 0x11045: b += "&#x94C;"; i++; break; //AU
+                    case 0x11046: b += "&#x94D;"; i++; break; //virama
+                    case 0x11047: b += "&#x964;"; i++; break; // danda
+                    case 0x11048: b += "&#x965;"; i++; break; // double danda
+                    case 0x11066: b += "&#x966;"; i++; break; //0
+                    case 0x11067: b += "&#x967;"; i++; break; //1
+                    case 0x11068: b += "&#x968;"; i++; break; //2
+                    case 0x11069: b += "&#x969;"; i++; break; //3
+                    case 0x1106A: b += "&#x96A;"; i++; break; //4
+                    case 0x1106B: b += "&#x96B;"; i++; break; //5
+                    case 0x1106C: b += "&#x96C;"; i++; break; //6
+                    case 0x1106D: b += "&#x96D;"; i++; break; //7 
+                    case 0x1106E: b += "&#x1106E;"; i++; break; //8
+                    case 0x1106F: b += "&#x96F;"; i++; break; //9
+                    default: b += "&#"+n+";"; break; // Keep unmapped characters as is
+                }
+            }
+            document.getElementById("Output2").innerHTML= b;
+        };
+    </script>
 </head>
 <body>
-<div><center><h1 style="font-style: bold; "><u>Devanagari to Brahmi Script converter</u></h1></center></div>
-<br>
-<br>
-	<div><center>
-		<h3>Convert from Devanagari(Hindi) script to Brahmi script</h3>
-		<br>
-		<input type="text" id="Devanagari" name="Devanagari" placeholder="Text in Devanagari script" required="" style="font-family: NotoSansDevanagari-Regular;">
-		<button onclick="DevanagariToBrahmi()">Convert</button> &nbsp &nbsp
-		<!-- <input id="Output1"> -->
-		<span id="Output1" style="font-size: 30px; color: brown; font-family: NotoSansBrahmi-Regular;"></span>
-</center>	</div>
-<br>
-	<div><center>
-		<h3>Convert from Brahmi script to Devanagari(Hindi) script</h3>
-		<br>
-		<input type="text" id="Brahmi" name="Brahmi" placeholder="Text in Brahmi script" required="" style="font-family: NotoSansBrahmi-Regular;">
-		<button onclick="BrahmiToDevanagari()">Convert</button> &nbsp &nbsp
-		<!-- <input id="Output2"> -->
-		<span id="Output2" style="font-size: 30px; color: brown; font-family: NotoSansDevanagari-Regular"></span></center>
-	</div>
-	<br>
-	<br>
-	<div>
-			Brahmi script is one of the oldest writing systems used in Ancient India and present South and Central Asia. It was in use from 7th century BCE to 5th century CE. It came into existence in the form of stone inscriptions during the reign of Asoka, in 4th - 3rd century B.C. Most of the modern day indic scripts are derived from the Brahmi script. It is very closely related to the Devanagari script which is used widely today and may be considered as its modern form. This tool helps in converting from Devanagari to Brahmi and vice versa.
-	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<div>
-		Check the <a href="https://github.com/mrp44rth/devanagari-to-brahmi-converter">project on GitHub</a>
-	</div>
-	<br>
-	<br>
-	<div>
-		Note:
-		<ul>
-			<li>
-				Brahmi characters have the unicode encoding from "11000–1107F". This range of unicode characters are compatible with mostly used fonts. If you see unsupported font like box OR quesionmarks, you may need to install NotoSansBrahmi font to view the script on your device. First download the font file <a href="NotoSansBrahmi-Regular.ttf">NotoSansBrahmi-Regular.ttf FILE</a>.
-				<ul>
-					<li>Install font by:</li>
-					<li>
-						For Windows: Right click on the TTF font > install.
-					</li>
-					<li>
-						For Linux: Double click the TTF file > select the Install button
-					</li>
-				</ul>
-			Restart the computer and bang on.....
-			</li>
-			
-			<li>
-					Use Hindi keyboard layout For android usage.
-			</li>
-		</ul>
-	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<div>
-		References:
-		<ul>
-			<li>
-				<a href="https://www.google.com/get/noto/#sans-brah">Brahmi font</a>
-			</li>
-			<li>
-				<a href="https://en.wikipedia.org/wiki/Brahmi_script"> Abount Brahmi script Source: Wikipedia</a>
-			</li>
-		</ul>
-	</div>
-	<br>
-	<br>
-	<div>
-		<p>&copy; All Rights Reserved | Designed by <a target="_blank" href="https://mrp44rth.github.io/vkarya/"> Vikash Kumar Arya</a></p>
-	</div>
+    <div class="container">
+        <h1>Devanagari to Brahmi Script Converter</h1>
+    </div>
+
+    <div class="container converter-section">
+        <h3>Convert from Devanagari (Hindi) script to Brahmi script</h3>
+        <input type="text" id="Devanagari" name="Devanagari" placeholder="Enter text in Devanagari script" required="" style="font-family: 'NotoSansDevanagari-Regular', 'Open Sans', sans-serif;">
+        <button onclick="DevanagariToBrahmi()">Convert</button>
+        <span id="Output1" class="output-text" style="font-family: 'NotoSansBrahmi-Regular', serif;"></span>
+    </div>
+
+    <div class="container converter-section">
+        <h3>Convert from Brahmi script to Devanagari (Hindi) script</h3>
+        <input type="text" id="Brahmi" name="Brahmi" placeholder="Enter text in Brahmi script" required="" style="font-family: 'NotoSansBrahmi-Regular', serif;">
+        <button onclick="BrahmiToDevanagari()">Convert</button>
+        <span id="Output2" class="output-text" style="font-family: 'NotoSansDevanagari-Regular', 'Open Sans', sans-serif;"></span>
+    </div>
+
+    <div class="container info-section">
+        <h2>About Brahmi Script</h2>
+        <p>Brahmi script is one of the oldest writing systems used in Ancient India and present South and Central Asia. It was in use from the 7th century BCE to the 5th century CE. It came into existence in the form of stone inscriptions during the reign of Asoka, in the 4th - 3rd century B.C. Most modern Indic scripts are derived from the Brahmi script. It is very closely related to the Devanagari script, which is used widely today and may be considered its modern form. This tool helps in converting from Devanagari to Brahmi and vice versa.</p>
+        <p>Check the <a href="https://github.com/mrp44rth/devanagari-to-brahmi-converter" target="_blank" rel="noopener noreferrer">project on GitHub</a>.</p>
+    </div>
+
+    <div class="container info-section">
+        <h2>Important Notes</h2>
+        <ul>
+            <li>
+                <p>Brahmi characters have Unicode encoding from <code>U+11000</code> to <code>U+1107F</code>. This range of Unicode characters is compatible with most modern fonts. If you see unsupported characters like boxes or question marks, you may need to install the **NotoSansBrahmi** font to view the script on your device.</p>
+                <p>First, download the font file: <a href="NotoSansBrahmi-Regular.ttf" download>NotoSansBrahmi-Regular.ttf FILE</a>.</p>
+                <p><strong>To install the font:</strong></p>
+                <ul>
+                    <li><strong>For Windows:</strong> Right-click on the TTF font file > Select <strong>Install</strong>.</li>
+                    <li><strong>For Linux:</strong> Double-click the TTF file > Select the <strong>Install</strong> button.</li>
+                </ul>
+                <p>Restart your computer for the changes to take effect.</p>
+            </li>
+            <li>Use a Hindi keyboard layout for Android usage to input Devanagari text correctly.</li>
+        </ul>
+    </div>
+
+    <div class="container info-section">
+        <h2>References</h2>
+        <ul>
+            <li><a href="https://www.google.com/get/noto/#sans-brah" target="_blank" rel="noopener noreferrer">Brahmi Font (Noto Sans Brahmi)</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Brahmi_script" target="_blank" rel="noopener noreferrer">About Brahmi Script (Source: Wikipedia)</a></li>
+        </ul>
+    </div>
+
+    <div class="container footer">
+        <p>&copy; 2025 All Rights Reserved | Designed by <a target="_blank" href="https://mrp44rth.github.io/vkarya/">Vikash Kumar Arya</a></p>
+    </div>
 </body>
 </html>
